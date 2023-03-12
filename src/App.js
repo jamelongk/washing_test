@@ -14,8 +14,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import Countdown from 'react-countdown';
-import { sendMessageToLine } from './api.js';
+// import Countdown from 'react-countdown';
+// import { sendMessageToLine } from './api.js';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -50,7 +50,7 @@ function App() {
     console.log(`Sum : ${sum}`)
     setSum(sum + 10)
     if (sum >= price) {
-      setSum(0)
+      setSum(10)
       const newData = data.map((item, i) => {
         if (i === index) {
           return { ...item, status: 2 }
@@ -69,7 +69,7 @@ function App() {
         progress: undefined,
         theme: "light",
       });
-      sendMessageToLine('Hello, Line user!')
+      // sendMessageToLine('Hello, Line user!')
     } else {
       console.log(`Not Pass`);
       toast.error(`ขาดอีก ${price - sum} บาท`, {
@@ -131,7 +131,7 @@ function App() {
                   <div>
                     <label>{item.machineName} : กำลังใช้งาน</label>
                     <Item><label>ราคา : {item.price}</label></Item>
-                    <Item><label>ระยะ : <Countdown date={Date.now() + 10000} /> นาที</label></Item>
+                    {/* <Item><label>ระยะ : <Countdown date={Date.now() + 10000} /> นาที</label></Item> */}
                   </div>
                 )}</Item>
 
